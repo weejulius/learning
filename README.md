@@ -1,4 +1,13 @@
-learning
+Learning
 ========
 
-learning
+##Overview
+
+track the notes when learning new stuff
+
+---
+
+##Topics
+
+* emacs
+  -  paredit
