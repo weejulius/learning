@@ -10,4 +10,4 @@ track the notes when learning new stuff
 ##Topics
 
 * emacs
-  -  paredit
+  -  [paredit](emacs/paredit.md)
