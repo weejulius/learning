@@ -11,3 +11,6 @@ track the notes when learning new stuff
 
 * emacs
   -  [paredit](emacs/paredit.md)
+
+* linux
+  -  [toollist](linux/toollist.md)
