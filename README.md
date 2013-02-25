@@ -14,3 +14,4 @@ track the notes when learning new stuff
 
 * linux
   -  [toollist](linux/toollist.md)
+  -  [zsh](linux/zsh.md)
