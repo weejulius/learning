@@ -29,12 +29,18 @@ CQRS ideas
   - events
 
 
-### sample
+### Sample
 
 * it does not introduce event sourcing
 * the write model and read model is combined, but has their name convention
 * the command sent to bus should be valid
 * the business rule is important
+
+#### Command bus
+  - it can send the command asynchroniously or synchroniously
+
+#### Event bus
+  - it can resent the failed event
 
 <Code>
 
