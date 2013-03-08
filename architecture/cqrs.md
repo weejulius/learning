@@ -3,12 +3,12 @@ CQRS ideas
 
 ### Why has read model
 
-* Cons
+* Pros
   * the standalone read model can be used to load balance
   * the read model can have different presentation with the write mode
-  * simiply and responsiblity reperation
+  * simipfy and break down the responsiblity
 
-* Pros
+* Cons
   * need additional model
 
 
@@ -24,6 +24,7 @@ CQRS ideas
 * what are added
   - event bus
   - command bus
+  _ event store
   - event handler
   - view
   - events
@@ -31,9 +32,8 @@ CQRS ideas
 
 ### Sample
 
-* it does not introduce event sourcing
-* the write model and read model is combined, but has their name convention
 * the command sent to bus should be valid
+* the validation reads from read model
 * the business rule is important
 
 #### Command bus
@@ -41,6 +41,14 @@ CQRS ideas
 
 #### Event bus
   - it can resent the failed event
+
+#### Event store
+  - the events are stored by aggregate id
+  - the events can have snapshot if events are a lot
+
+## Thinking
+   - we may have 3 copy of data, the events and snapshot and view
+
 
 <Code>
 
