@@ -41,10 +41,11 @@ CQRS ideas
 
 #### Event bus
   - it can resent the failed event
+  - it garantee the order of recieving events for each aggregate root in case the events are received disorderly 
 
 #### Event store
-  - the events are stored by aggregate id
-  - the events can have snapshot if events are a lot
+  - the events are fetched for one aggregate root only by aggregate id
+  - one aggregate root can have snapshot if its events are a lot
 
 ## Thinking
    - we may have 3 copy of data, the events and snapshot and view
@@ -52,16 +53,18 @@ CQRS ideas
 
 <Code>
 
-    {:command :add-task
+    {:command :task/add-task
     :task/description "task one"
+    :sync false ;; is the command waiting for the result
     }
 
-    ;; the dispatcher garantees the order of event and command
     (defn dispatch-command [command]
-    (dispatch-event handle-add-task command))
+      (let [event handle-add-task command]
+        (append-to-eventstore event)
+        (publish event))
 
     (defn handle-add-task[command]
-    (save-task (create-task {})))
+    (create-task {}))
 
     (defn create-task [properties]
     (create-event {:event task-added}))
